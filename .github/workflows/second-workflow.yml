@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Hello github actions through vscode
-      runs: echo "Hello this is the second Workflow"
+      run: echo "Hello this is the second Workflow"
     - name: My github actions through vscode
-      runs: echo "my github actions"
+      run: echo "my github actions"
   
