@@ -1,0 +1,38 @@
+name: Validate sequential flow
+on: push
+jobs:
+    validate-HTML:
+      runs-on: Ubuntu-latest
+
+      steps:
+      - name: get repo-code
+        uses: actions/checkout@v4
+
+      - name: validate html file
+        run: test -f index.html
+      
+      - name: validate source file
+        run: test -f source.js
+
+    validate-source-file:
+      runs-on: Ubuntu-latest
+
+      steps:
+      - name: get repo-code
+        uses: actions/checkout@v4
+      
+      - name: validate source file
+        run: test -f source.js
+        
+    validate-code:
+      needs:[validate-HTML, validate-source-File]
+      runs-on: Ubuntu-latest
+
+      steps:
+      - name: get repo-code
+        uses: actions/checkout@v4
+      
+      - name: validate source file
+        run: node --check source.js
+
+        
