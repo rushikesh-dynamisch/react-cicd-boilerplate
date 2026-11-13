@@ -38,7 +38,11 @@
 
 name: Validate sequential flow
 
-on: push
+on:
+   workflow_run:
+   workflows: [First Workflow]
+   types:
+    - completed
 
 jobs:
   validate-HTML:
